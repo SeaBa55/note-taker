@@ -54,6 +54,7 @@ const handleNoteSave = function () {
   const newNote = {
     title: $noteTitle.val(),
     text: $noteText.val(),
+    // Add a unique id to each new note based on the length of the notes list array size 
     id: $noteList.children().toArray().length
   };
 
