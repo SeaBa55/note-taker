@@ -4,6 +4,8 @@
 
 This application uses an express backend to write, save, and delete notes from a JSON file.
 
+![note_taker](./public/assets/img/Note_Taker.gif)
+
 ## Table of Contents
 
 * [Installation](#installation) 
@@ -38,11 +40,6 @@ none
 ## Tests
 
 none
-
-## Screencastify
-
-![note_taker](./public/assets/img/Note_Taker.gif)
-
 
 ## Revisions
 
