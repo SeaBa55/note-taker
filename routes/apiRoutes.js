@@ -4,8 +4,6 @@ const router = require("express").Router();
 const notesData = require("../db/db.json");
 const fs = require("fs");
 
-
-
 // ROUTING
 
 // API GET Requests
@@ -32,16 +30,15 @@ router.post("/notes", function(req, res) {
     console.log(req.body);
 
     //use fs to access db.json
-    fs.readFile("./db/db.json", "utf8", function(error, data) {
+    fs.readFile("./db/db.json", "utf8", function(err, data) {
 
-        if(error){console.log(error)}
+        if (err) throw err;
 
         console.log("got the file, parsing")
         console.log(data)
 
         let raw = JSON.parse(data);
 
-        // req.body.id = "1";
         raw.push(req.body);
 
         console.log("pushed new item")
@@ -69,26 +66,34 @@ router.post("/notes", function(req, res) {
 router.delete("/notes/:id", function(req, res) {
 
     let id = req.params.id;
-    
-    for (let i = 0; i < notesData.length; i++){
 
-        if (id == notesData[i].id) {
-            
-            notesData.splice(i,1);
+    fs.readFile("./db/db.json", "utf8", function(err, data) {
 
-            fs.writeFile("./db/db.json", JSON.stringify(notesData), function(err) {
+        if (err) throw err;
 
-                if(err) return err;
-    
-                console.log("note deleted");
-    
-            });
+        let raw = JSON.parse(data);
 
-            res.end();
+        for (let i = 0; i < raw.length; i++) {
 
-        }
+            if (id == raw[i].id) {
 
-    }
+                raw.splice(i,1);
+
+                fs.writeFile("./db/db.json", JSON.stringify(raw), function(err) {
+
+                    if (err) throw err;
+
+                    console.log("note deleted");
+
+                })
+
+            };
+
+        };
+
+    });
+        
+    res.end(); 
 
 });
 

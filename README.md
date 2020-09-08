@@ -82,5 +82,7 @@ note-taker_v1.0 - Initial commit: Note taker save feature is currently capable o
 
 note-taker_v1.1 - Notes are now being rendered after creation of a new note. Notes can also be deleted, however it seems there is an issue with the delete request functionality as it will not work after a new note has been saved.
 
+note-taker_v1.2 - Added a readFile function to the delete feature, as it turns out it wasn't receiving updated data from the db.json file. The delete feature is now functional.
+
 - - -
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
