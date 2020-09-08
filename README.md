@@ -80,5 +80,7 @@ You are required to submit the following:
 
 note-taker_v1.0 - Initial commit: Note taker save feature is currently capable of writing note data to db.json file. Need to figure out how to update the data displayed being rendered by the server.
 
+note-taker_v1.1 - Notes are now being rendered after creation of a new note. Notes can also be deleted, however it seems there is an issue with the delete request functionality as it will not work after a new note has been saved.
+
 - - -
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.

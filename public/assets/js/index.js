@@ -21,7 +21,7 @@ const saveNote = (note) => {
     url: "/api/notes",
     data: note,
     method: "POST",
-  });
+  })
 };
 
 // A function for deleting a note from the db
@@ -54,6 +54,7 @@ const handleNoteSave = function () {
   const newNote = {
     title: $noteTitle.val(),
     text: $noteText.val(),
+    id: $noteList.children().toArray().length
   };
 
   saveNote(newNote).then(() => {

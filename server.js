@@ -4,6 +4,8 @@
 // ==============================================================================
 
 const express = require("express");
+const apiRoute = require("./routes/apiRoutes");
+const htmlRoute = require("./routes/htmlRoutes");
 
 // ==============================================================================
 // EXPRESS CONFIGURATION
@@ -20,8 +22,8 @@ const PORT = process.env.PORT || 8080;
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use("/api",require("./routes/apiRoutes"));
-app.use("/",require("./routes/htmlRoutes"));
+app.use("/api",apiRoute);
+app.use("/",htmlRoute);
 
 // ================================================================================
 // ROUTER
